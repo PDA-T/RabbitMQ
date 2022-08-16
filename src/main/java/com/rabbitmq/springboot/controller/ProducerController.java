@@ -37,7 +37,7 @@ public class ProducerController {
 		log.info("当前时间:{},发送一条信息给确认列队:{}",new Date().toString(),message);
 		// 发送消息
 		rabbitTemplate.convertAndSend(ConfirmConfig.CONFIRM_EXCHANGE_NAME,
-				ConfirmConfig.CONFIRM_ROUTING_KEY,"消息:" + message,correlationData);
+				ConfirmConfig.CONFIRM_ROUTING_KEY,message,correlationData);
 
 
 		/*
@@ -49,6 +49,6 @@ public class ProducerController {
 		log.info("当前时间:{},发送一条信息给确认列队:{}",new Date().toString(),message);
 		// 发送消息
 		rabbitTemplate.convertAndSend(ConfirmConfig.CONFIRM_EXCHANGE_NAME,
-				ConfirmConfig.CONFIRM_ROUTING_KEY + "2","消息:" + message,correlationData2);
+				ConfirmConfig.CONFIRM_ROUTING_KEY + "2",message,correlationData2);
 	}
 }
